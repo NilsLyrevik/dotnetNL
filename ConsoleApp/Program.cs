@@ -46,19 +46,21 @@ class Program
         {
             string upperBoundS = Console.ReadLine();
             upperBoundI = int.Parse(upperBoundS);
+
         }
 
         Console.WriteLine("Ok, pick amount of guesses i get");
 
-        int nGuesse = 0;
-        while (nGuesse < 1 || nGuesse >= upperBoundI)
+        int nGuesse = int.Parse(nGuesseS);
+        while (nGuesse < 0 || nGuesse >= upperBoundI)
         {
             string nGuesseS = Console.ReadLine();
-            nGuesse = int.Parse(nGuesseS);
-        }
-        
+            int nGuesse = int.Parse(nGuesseS);
 
-        
+        }
+        // skriv logik angående gissningar här, 
+       
+       // tänk på att printa ut resultat pch användarens pengar och sånt.
 
     }
     }
