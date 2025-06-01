@@ -21,10 +21,44 @@ class Program
         while (uAmount < 10 || uAmount > 1000)
         {
             Console.WriteLine("please enter a number between 10 and 1000");
-        string tempAmount = Console.ReadLine();
-        uAmount = int.Parse(tempAmount);
+            string tempAmount = Console.ReadLine();
+            uAmount = int.Parse(tempAmount);
         }
         Console.WriteLine("ok! amount is: " + uAmount);
+        Thread.Sleep(1000);
+        Console.WriteLine("The game works as follows:");
+        Thread.Sleep(1000);
+        Console.WriteLine("Pick number in the range 2 - 50'000");
+        Thread.Sleep(1000);
+        Console.WriteLine("Pick amount of numbers I am going to pick from that range");
+        Thread.Sleep(1000);
+        Console.WriteLine("(Has to be less than roof AND more than 0)");
+        Thread.Sleep(1000);
+        Console.WriteLine("If you are right I will increase your bet accordingly");
 
+
+        Console.WriteLine("Lets Begin!");
+        Thread.Sleep(1000);
+        Console.WriteLine("pick a max number:");
+        int upperBoundI = 0;
+
+        while (upperBoundI > 50000 || upperBoundI < 2)
+        {
+            string upperBoundS = Console.ReadLine();
+            upperBoundI = int.Parse(upperBoundS);
         }
+
+        Console.WriteLine("Ok, pick amount of guesses i get");
+
+        int nGuesse = 0;
+        while (nGuesse < 1 || nGuesse >= upperBoundI)
+        {
+            string nGuesseS = Console.ReadLine();
+            nGuesse = int.Parse(nGuesseS);
+        }
+        
+
+        
+
+    }
     }
