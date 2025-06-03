@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
-class Program
+class TerminalGambling
 {
-    static void Main()
-    {
-        int uAmount = 0;
-        string uName = "user";
-        Introduction();
-        uName = AskUserName();
-        uAmount = AskUserBalance(uName);
-        ExplainGame();
+       static void Main()
+{
+    int uAmount = 0;
+    string uName = "user";
+    Introduction();
+    uName = AskUserName();
+    uAmount = AskUserBalance(uName);
+    ExplainGame();
 
+    while (uAmount > 0)
+    {
         int upperBoundI = AskUpperBound();
         int nGuesse = AskNumberOfGuesses(upperBoundI);
 
@@ -31,7 +33,7 @@ class Program
         string guessString = Console.ReadLine();
         int guess = int.Parse(guessString);
 
-        Boolean isCollision = guesseSet.Contains(guess);
+        bool isCollision = guesseSet.Contains(guess);
         if (isCollision)
         {
             uAmount += payout;
@@ -41,7 +43,25 @@ class Program
         {
             Console.WriteLine("You lost... new balance is: " + uAmount);
         }
+
+        if (uAmount > 0)
+        {
+            Console.WriteLine("Do you want to play another round? (y/n)");
+            string response = Console.ReadLine().ToLower();
+            if (response != "y")
+            {
+                break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("You are out of money. Game over!");
+        }
     }
+
+    Console.WriteLine("Thanks for playing!");
+}
+
 
     static void Introduction()
     {
